@@ -8,6 +8,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($user) || empty($pass)){
         echo "All fields required";
     }
+
+    else{
+        
+    }
 }
 
 ?>
