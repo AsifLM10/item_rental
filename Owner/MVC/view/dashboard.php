@@ -7,5 +7,8 @@ if(!isset($_SESSION["username"]) || $_SESSION["role"] != "owner"){
 ?>
 <!DOCTYPE html>
 <html>
-    
+    <head>
+        <title>Owner Dashboard</title>
+        <link rel="stylesheet" href="../../../Common/MVC/css/style.css">
+    </head>
 </html>
