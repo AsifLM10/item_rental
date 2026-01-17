@@ -13,6 +13,8 @@ session_start();
 
         <div class="form-box">
             <h2>Register</h2>
+
+            <form method="post" action="../control/registerAction.php"></form>
         </div>
     </body>
 </html>
