@@ -29,4 +29,9 @@ if (isset($_GET["toggle"])) {
     header("Location: ../view/manageItems.php");
 }
 
+if (isset($_GET["delete"])) {
+    $id = $_GET["delete"];
+    mysqli_query($conn, "DELETE FROM items WHERE id=$id");
+    header("Location: ../view/manageItems.php");
+}
 ?>
