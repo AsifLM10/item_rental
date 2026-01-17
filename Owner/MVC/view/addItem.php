@@ -20,7 +20,8 @@ if(!isset($_SESSION["username"])){
             <form method="post" action="../control/itemAction.php">
                 <input type="text" name="item_name" placeholder="Item Name">
                 <input type="number" name="price" placeholder="Price">
-                
+                <input type="hidden" name="action" value="add">
+                <input type="submit" class="btn" value="Add Item">
             </form>
         </div>
     </body>
