@@ -40,5 +40,17 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
             <?php } ?>
             </table>
         </div>
+
+        <div class="section gray">
+            <h3>Recent Comments</h3>
+
+            <?php
+            $comments=mysqli_query($conn, "SELECT * FROM comments");
+            while($c=mysqli_fetch_assoc($comments)){
+                echo "<p><b>" .$c[username]. "</b>: " .$c["comment"]. "</p>";
+            }
+            ?>
+        </div>
+
     </body>
 </html>
