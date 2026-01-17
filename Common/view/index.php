@@ -22,6 +22,21 @@ session_start();
             }
             ?>
         </div>
+
+        <div class="section">
+            <h2>Why Choose Us?</h2>
+            <div class="cards">
+                <div class="card">Easy Item Management</div>
+                <div class="card">Secure Login System</div>
+            </div>
+        </div>
+
+        <div class="section gray">
+            <h2> How It Works</h2>
+            <p>Register -> Login -> Manage or Rent Items</p>
+        </div>
+
+        
     </body>
 
 </html>
