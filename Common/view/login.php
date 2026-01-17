@@ -9,6 +9,7 @@ session_start();
         <script src="../js/validation.js"></script>
     </head>
     <body>
+        <?php include "header.php"; ?>
         <div class="form-box">
             <h2>Login</h2>
 
