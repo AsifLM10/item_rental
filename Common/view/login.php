@@ -17,6 +17,7 @@ session_start();
                 <input type="password" name="password" id="password" placeholder="Password">
                 <input type="submit" value="Login" class="btn">
             </form>
+            <p id="error" class="error"></p>
         </div>
     </body>
 </html>
