@@ -36,7 +36,14 @@ session_start();
             <p>Register -> Login -> Manage or Rent Items</p>
         </div>
 
-        
+        <div class="section">
+            <h2 id="modeText">Light Mode</h2>
+            <button onclick="toggleMode()">Switch Mode</button>
+        </div>
+
+        <div class="footer">
+            © 2025 Item Rental Management System
+        </div>
     </body>
 
 </html>
