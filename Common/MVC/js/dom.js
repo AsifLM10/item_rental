@@ -3,7 +3,7 @@ function toggleMode(){
     var text = document.getElementById("modeText");
 
     if(body.style.backgroundColor == "black"){
-        body.style.backgroundColor = "";
+        body.style.backgroundColor = "#f9f9f9";
         body.style.color = "black";
         text.innerHTML = "Light Mode";
     } else{
