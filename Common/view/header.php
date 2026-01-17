@@ -3,6 +3,7 @@
     <div class="nav-links">
         <a href="index.php">Home</a>
 
-        
+        <?php
+        ?>
     </div>
 </div>
