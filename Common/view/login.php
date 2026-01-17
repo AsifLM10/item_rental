@@ -6,6 +6,17 @@ session_start();
     <head>
         <title>Login</title>
         <link rel="stylesheet" href="../css/style.css">
-        
+        <script src="../js/validation.js"></script>
     </head>
+    <body>
+        <div class="form-box">
+            <h2>Login</h2>
+
+            <form method="post" action="../controller/loginAction.php" onsubmit="return loginValidate()">
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <input type="submit" value="Login" class="btn">
+            </form>
+        </div>
+    </body>
 </html>
