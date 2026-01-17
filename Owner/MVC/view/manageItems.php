@@ -13,6 +13,31 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
         <link rel="stylesheet" href="../../../Common/MVC/css/style.css">
     </head>
     <body>
-        
+        <?php include "../../../Common/MVC/view/header.php"; ?>
+
+        <div class="section">
+            <h2>My Items</h2>
+            
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+
+            <?php while($row=mysqli_fetch_assoc($result)){?>
+            <tr>
+                <td><?php echo $row["id"]; ?></td>
+                <td><?php echo $row["item_name"]; ?></td>
+                <td><?php echo $row["price"]; ?></td>
+                <td><?php echo $row["status"]; ?></td>
+                <td>
+                    <a href="../control/itemAction.php?toggle=<?php echo $row["id"]; ?>">Toggle</a>
+                    <a href="../controller/itemAction.php?delete=<?php echo $row["id"]; ?>">Delete</a>
+                </td>
+            </tr>
+            <?php } ?>
+        </div>
     </body>
 </html>
