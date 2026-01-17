@@ -5,3 +5,14 @@ if(!isset($_SESSION["username"])){
     exit();
 }
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Item</title>
+        <link rel="stylesheet" href="../../../Common/MVC/css/style.css">
+    </head>
+    <body>
+        <?php include "../../../Common/MVC/view/header.php"; ?>
+        
+    </body>
+</html>
