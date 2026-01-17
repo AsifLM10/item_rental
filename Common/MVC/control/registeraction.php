@@ -17,5 +17,8 @@ $sql = "INSERT INTO users(username,password,role) VALUES('$user','$hash','$role'
 if(mysqli_query($conn,$sql)){
     echo "Registration Successful <a href='../view/login.php'>Login</a>";
 }
+else{
+    echo "Error";
+}
 
 ?>
