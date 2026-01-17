@@ -10,7 +10,7 @@
             Register
         </h2>
 
-        <form method="post" action="">
+        <form method="post" action="../../../Common/control/registerAction.php">
             Username: <input type="text" name="username"><br><br>
             Password: <input type="password" name="password"><br><br>
 
