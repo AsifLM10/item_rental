@@ -9,4 +9,9 @@ if(empty($user) || empty($pass)){
     echo "All fields required";
     exit();
 }
+
+$sql = "SELECT * FROM users WHERE username='$user'";
+$result = mysqli_query($conn,$sql);
+
+
 ?>
