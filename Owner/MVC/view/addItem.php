@@ -13,6 +13,15 @@ if(!isset($_SESSION["username"])){
     </head>
     <body>
         <?php include "../../../Common/MVC/view/header.php"; ?>
-        
+
+        <div class="form-box">
+            <h2>Add Item</h2>
+
+            <form method="post" action="../control/itemAction.php">
+                <input type="text" name="item_name" placeholder="Item Name">
+                <input type="number" name="price" placeholder="Price">
+                
+            </form>
+        </div>
     </body>
 </html>
