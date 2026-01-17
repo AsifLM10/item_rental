@@ -13,5 +13,11 @@ if(empty($user) || empty($pass)){
 $sql = "SELECT * FROM users WHERE username='$user'";
 $result = mysqli_query($conn,$sql);
 
+if(mysqli_num_rows($result) == 1)
+    {
+        $row = mysqli_fetch_assoc($result);
 
+        $_SESSION["username"] = $row["username"];
+        $_SESSION["role"] = $row["role"];
+    }
 ?>
