@@ -2,13 +2,11 @@ function toggleMode(){
     var body = document.body;
     var text = document.getElementById("modeText");
 
-    if(body.style.backgroundColor == "black"){
-        body.style.backgroundColor = "#f9f9f9";
-        body.style.color = "black";
+    if(body.className == "dark"){
+        body.className= "";
         text.innerHTML = "Light Mode";
     } else{
-        body.style.backgroundColor = "black";
-        body.style.color = "white";
+        body.className = "dark";
         text.innerHTML = "Dark Mode";
     }
 }
