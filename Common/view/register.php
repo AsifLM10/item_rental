@@ -17,6 +17,13 @@ session_start();
             <form method="post" action="../control/registerAction.php">
                 <input type="text" name="username" placeholder="Username">
                 <input type="password" name="password" placeholder="Password">
+
+                <select name="role">
+                    <option value="">Select role</option>
+                    <option value="owner">Owner</option>
+                    <option value="renter">Renter</option>
+                </select>
+
                 
             </form>
         </div>
