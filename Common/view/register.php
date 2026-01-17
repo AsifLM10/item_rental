@@ -24,7 +24,7 @@ session_start();
                     <option value="renter">Renter</option>
                 </select>
 
-                
+                <input type="submit" value="Register" class="btn">
             </form>
         </div>
     </body>
