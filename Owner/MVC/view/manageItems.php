@@ -17,7 +17,7 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
 
         <div class="section">
             <h2>My Items</h2>
-            
+            <table border="1" align="center">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
@@ -38,6 +38,7 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
                 </td>
             </tr>
             <?php } ?>
+            </table>
         </div>
     </body>
 </html>
