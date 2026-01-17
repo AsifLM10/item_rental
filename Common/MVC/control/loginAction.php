@@ -23,10 +23,10 @@ if(mysqli_num_rows($result) == 1)
         setcookie("user", $row["username"], time()+3600);
 
         if($row["role"] == "owner"){
-            header("Location: ../../Owner/MVC/view/dashboard.php");
+            header("Location: ../../../Owner/MVC/view/dashboard.php");
         }
         else{
-            header("Location: ../../Renter/MVC/view/dashboard.php");
+            header("Location: ../../../Renter/MVC/view/dashboard.php");
         }
     }
     else{
