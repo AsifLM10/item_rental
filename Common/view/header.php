@@ -6,7 +6,10 @@
         <?php
         if(isset($_SESSION["username"])){
             echo "Welcome ".$_SESSION["username"]."";
-
+        }
+        else{
+            echo "<a href='login.php'>Login</a>";
+            
         }
         ?>
     </div>
