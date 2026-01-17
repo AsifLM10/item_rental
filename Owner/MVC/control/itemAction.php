@@ -19,4 +19,14 @@ if($action == "add"){
     mysqli_query($conn, $sql);
     header("Location: ../view/manageItems.php");
 }
+if (isset($_GET["toggle"])) {
+    $id = $_GET["toggle"];
+
+    $row = mysqli_fetch_assoc(mysqli_query($conn, "SELECT status FROM items WHERE id=$id"));
+    $newStatus = ($row["status"] == "Available") ? "Rented" : "Available";
+
+    mysqli_query($conn, "UPDATE items SET status='$newStatus' WHERE id=$id");
+    header("Location: ../view/manageItems.php");
+}
+
 ?>
