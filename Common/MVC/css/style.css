@@ -50,6 +50,11 @@ body {
     margin: 100px auto;
     background: white;
     padding: 25px;
+    box-sizing: border-box;
+}
+
+.form-box h2{
+    text-align: center;
 }
 
 input, select {
