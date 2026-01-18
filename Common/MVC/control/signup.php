@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include("../database/rent.php");
+include("../database/config.php");
 $message = "";
 if($_SERVER["REQUEST_METHOD"]== "POST")
 {
