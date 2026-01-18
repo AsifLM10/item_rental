@@ -10,10 +10,11 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
 <html>
     <head>
         <title>Manage Items</title>
-        <link rel="stylesheet" href="../../../Common/MVC/css/style.css">
+        <link rel="stylesheet" href="../stylesheets/manageItems.css">
     </head>
     <body>
-        <?php include "../../../Common/MVC/view/header.php"; ?>
+
+    <a href="dashboard.php" class="home-btn">Dashboard</a>
 
         <div class="section">
             <h2>My Items</h2>
