@@ -10,13 +10,12 @@ session_start();
         <script src="../js/dom.js"></script>
     </head>
     <body>
-        <?php include "header.php"; ?>
 
         <div class="box">
             <h1>🛒 EasyRent</h1>
             <p>Rent items easily and securely</p>
 
-            <?php if(!isset($_SESSION["username"])): ?>
+            <?php if(isset($_SESSION["username"])): ?>
                 <p><b>Welcome <?php echo $_SESSION["username"]; ?></b></p>
                 <a href="../../../<?php echo ($_SESSION["role"] === 'owner') ? 'Owner/MVC/view/dashboard.php' : 'Renter/view/dashboard.php'; ?>">
                     Go to Dashboard
@@ -40,31 +39,12 @@ session_start();
     <h3>How It Works</h3>
     <p>Register → Login → Manage or Rent Items</p>
 
-    <h3 id="modeText">Light Mode</h3>
-    <button onclick="toggleMode()">Switch Mode</button>
-
     <p style="margin-top:15px;">
         © 2025 Item Rental Management System
     </p>
 
 </div>
 
-<script>
-function toggleMode() {
-    var body = document.body;
-    var text = document.getElementById("modeText");
-
-    if (body.style.backgroundColor === "black") {
-        body.style.backgroundColor = "";
-        body.style.color = "white";
-        text.innerHTML = "Light Mode";
-    } else {
-        body.style.backgroundColor = "black";
-        body.style.color = "white";
-        text.innerHTML = "Dark Mode";
-    }
-}
-</script>
     </body>
 
 </html>
