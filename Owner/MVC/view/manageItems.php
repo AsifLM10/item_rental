@@ -18,18 +18,24 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
 
     <h2 class="title">Manage Your Items</h2>
     <div class="container">
-        <?php if($row["image"]): ?>
-            <img src="../../../uploads/<?php echo $row["image"]; ?>" alt="Item Image">
-            <?php endif; ?>
-
-            <h3><?php echo $row["item_name"]; ?></h3>
-            <p><?php echo $row["descriptions"]; ?></p>
-            <p>Price: ৳<?php echo $row["price"]; ?></p>
-            <p>Status: <?php echo $row["status"]; ?></p>
-
-            <a href= "../controller/deleteItems.php?id=<?php echo $row["id"]; ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this item?')">
-                Delete
-            </a>
+        <?php if(mysqli_num_rows($result) > 0): ?>
+            <?php while($row = mysqli_fetch_assoc($result)): ?>
+                <div class="card">   
+                    <?php if($row["image"]): ?>
+                        <img src="../../../uploads/<?php echo $row["image"]; ?>" alt="Item Image">
+                        <?php endif; ?>
+                        <h3><?php echo $row["item_name"]; ?></h3>
+                        <p><?php echo $row["descriptions"]; ?></p>
+                        <p>Price: ৳<?php echo $row["price"]; ?></p>
+                        <p>Status: <?php echo $row["status"]; ?></p>
+                        <a href= "../controller/deleteItems.php?id=<?php echo $row["id"]; ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this item?')">
+                            Delete
+                        </a>
+                    </div>
+            <?php endwhile; ?>
+        <?php else: ?>
+            <p class="empty">No items added yet.</p>
+        <?php endif; ?>    
     </div>
 
     </body>
