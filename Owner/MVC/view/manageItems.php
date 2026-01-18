@@ -26,6 +26,10 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
             <p><?php echo $row["descriptions"]; ?></p>
             <p>Price: ৳<?php echo $row["price"]; ?></p>
             <p>Status: <?php echo $row["status"]; ?></p>
+
+            <a href= "../controller/deleteItems.php?id=<?php echo $row["id"]; ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this item?')">
+                Delete
+            </a>
     </div>
 
     </body>
