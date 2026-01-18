@@ -24,10 +24,14 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
                     <?php if(!empty($row["image"])): ?>
                         <img src="../../../uploads/<?php echo $row["image"]; ?>" alt="Item Image">
                         <?php endif; ?>
-                        <h3><?php echo htmlspecialchars($row["item_name"]); ?></h3>
-                        <p><?php echo htmlspecialchars($row["description"]); ?></p>
+                        <h3><?php echo $row["item_name"]; ?></h3>
+                        <p><?php echo $row["description"]; ?></p>
                         <p><strong>Price:</strong> ৳<?php echo $row["price"]; ?></p>
                         <p><strong>Status:</strong> <?php echo $row["status"]; ?></p>
+
+                        <button onclick="openEdit(<?php echo $row['id']?>, <?php echo $row['item_name']; ?>, <?php echo $row['description']; ?>, <?php echo $row['price']; ?> )">
+                            Edit
+                        </button>
                         <a href= "../controller/deleteItems.php?id=<?php echo $row["id"]; ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this item?')">
                             Delete
                         </a>
