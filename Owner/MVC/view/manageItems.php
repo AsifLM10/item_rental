@@ -27,7 +27,7 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
                         <h3><?php echo $row["item_name"]; ?></h3>
                         <p><?php echo $row["description"]; ?></p>
                         <p><strong>Price:</strong> ৳<?php echo $row["price"]; ?></p>
-                        <p><strong>Status:</strong> <?php echo $row["status"]; ?></p>
+                        <p id="status- <?php echo $row['id']; ?>"><strong>Status:</strong> <?php echo $row["status"]; ?></p>
 
                         <button onclick="toggleStatus(<?php echo $row['id']; ?>)">
                             Toggle Status
