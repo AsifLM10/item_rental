@@ -69,3 +69,7 @@ body {
     color: #3498db;
     font-weight: bold;
 }
+
+input[type="file"]{
+    border: none;
+}
