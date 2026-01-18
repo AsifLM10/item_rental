@@ -1,0 +1,99 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(120deg, #3498db, #2ecc71);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+   }
+  .home-btn{
+    position: absolute;
+    top: 20px;
+    right:25px;
+    background-color:#003366;
+    color:white;
+    padding: 8px 14px;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+    font-size:14px;
+  }
+  .home-btn:hover{
+    background-color:#0055aa;
+  }
+.login-box{
+  background:#fff;
+  width:360px;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 15px 30px rgba(0,0,0,0.2);
+}
+
+.login-box h2
+{
+  text-align:center;
+  margin-bottom:10px;
+}
+.login-box p
+{
+  text-align:center;
+  color:#666;
+}
+.input-group
+{
+  display:flex;
+  align-items:center;
+  border:1px solid #ccc;
+  border-radius:6px;
+  padding:0 10px;
+  margin-bottom:15px;
+}
+.input-group i 
+{
+  margin-right:8px;
+}
+.input-group input
+{
+  border:none;
+  outline:none;
+  width:100%;
+  padding:10px 0;
+}
+.show-pass
+{
+  text-align:right;
+  font-size:13px;
+  cursor:pointer;
+}
+.centre-box
+{
+  text-align:center;
+  margin-top:15px;
+}
+.login-btn
+{
+  width:100%;
+  padding:10px;
+  background:#003366;
+  border:none;
+  color:white;
+  border-radius:6px;
+}
+.login-btn:hover{
+  background-color: #0055aa;
+}
+.error
+{
+  background: #ffe0e0;
+  color:#b00000;
+  padding:10px;
+  margin-top:10px;
+  text-align:center;
+}
+.footer-text
+{
+  text-align:center;
+  margin-top:15px;
+  color:#555
+}

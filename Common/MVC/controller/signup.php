@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include("../database/config.php");
+include("../database/rent.php");
 $message = "";
 if($_SERVER["REQUEST_METHOD"]== "POST")
 {
@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST")
     }
     else{
          $hash=password_hash($password,PASSWORD_DEFAULT);
-         $sql="INSERT INTO users(username,password,email) VALUES ('$username','$hash','$email')";
+         $sql="INSERT INTO users(username,password,role,email) VALUES ('$username','$hash','$email')";
          if(mysqli_query($conn,$sql))
         {
           $message="<p class='success'>Account created successfully!</p>";

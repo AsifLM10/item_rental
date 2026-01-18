@@ -1,13 +1,13 @@
 <?php
 session_start();
-include("../database/config.php");
+include("../database/rent.php");
 $username="";
 $userError="";
 $passError="";
 $error="";
 if(isset($_SESSION["username"]))
 {
-  header("Location: ../../Owner/view/dashboard.php");
+  header("Location:dashboard.php");
   exit();
 }
 
@@ -38,22 +38,23 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if(password_verify($password,$row["password"]))
         {
             $_SESSION["username"]=$username;
-            $_SESSION["role"] = $row["role"];
-        if(isset($_POST["remember"]))
-            {
+    if(isset($_POST["remember"]))
+        {
             setcookie("username",$username,time()+(86400*30),"/");
-            }
-        if($row[$role] === "owner"){
-            header("Location: ../../Owner/view/dashboard.php");
         }
-        else{
-            header("Location: ../../Renter/view/dashboard.php");
+            $_SESSION["role"] = $row["role"];
+            if ($row["role"] === "owner") {
+                header("Location: ../../Owner/MVC/view/dashboard.php");
+            } else {
+                header("Location: ../../Renter/view/dashboard.php");
+                }
+                exit();
+
         }
-        exit();  
-        }
-        else{
+    else
+         {
              $error="Invalid username or password";
-             }
+        }
         }
     else
         {

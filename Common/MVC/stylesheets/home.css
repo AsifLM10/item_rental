@@ -1,0 +1,43 @@
+body{
+font-family:Arial, sans-serif;
+background: linear-gradient(120deg,#3498db, #2ecc71);
+margin: 0;
+display: flex;
+justify-content: center;
+align-items:center;
+color: white;
+padding: 20px;
+box-sizing: border-box;
+}
+.box{
+background: rgba(255,255, 255, 0.2);
+padding:25px;
+border-radius: 10px;
+width: 100%;
+max-width:880px;
+text-align:center;
+}
+.home-img{
+width:100%;
+max-width:400px;
+height:auto;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+a{
+    display:inline-block;
+    margin:8px;
+    padding:10px 15px;
+    background: white;
+    color:#3498db;
+    text-decoration:none;
+    border-radius: 5px;
+    font-weight:bold;
+}
+a:hover{
+    background: #ecf0f1;
+}
+hr{
+    margin:20 px 0;
+}
