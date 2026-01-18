@@ -5,20 +5,18 @@ include("../controller/addItem.php");
 <html>
     <head>
         <title>Add Item</title>
-        <link rel="stylesheet" href="../../../Common/MVC/css/style.css">
     </head>
     <body>
-        <?php include "../../../Common/MVC/view/header.php"; ?>
+        <h2>Add New Item</h2>
+        <form method="post">
+            <input type="text" name="item_name" placeholder="Item name"><br><br>
 
-        <div class="form-box">
-            <h2>Add Item</h2>
+            <textarea name="description" placeholder="Item description"></textarea><br><br>
 
-            <form method="post" action="../control/itemAction.php">
-                <input type="text" name="item_name" placeholder="Item Name">
-                <input type="number" name="price" placeholder="Price">
-                <input type="hidden" name="action" value="add">
-                <input type="submit" class="btn" value="Add Item">
-            </form>
-        </div>
+            <input type="number" name="price" placeholder="Price"><br><br>
+
+            <button type="submit">Add Item</button>
+        </form>
+        
     </body>
 </html>
