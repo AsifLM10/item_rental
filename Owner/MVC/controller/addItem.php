@@ -1,5 +1,5 @@
 <?php
-if(session_start() === PHP_SESSION_NONE){
+if(session_start() === PHP_SESSION_NONE) {
     session_start();
 }
 include("../../../Common/MVC/database/config.php");
@@ -15,20 +15,24 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $name=trim($_POST["name"]);
     $description = trim($_POST["description"]);
     $price = (int)$_POST["price"];
+    $owner=$_SESSION["username"];
+    $status="available";
+    $imageDBName=null;
 
+    if(!empty($_FILES["image"]["name"])){
     $imageName=$_FILES["image"]["name"];
     $tmpName=$_FILES["image"]["tmp_name"];
 
     $uploadDir = "../../../uploads/";
-    $newImageName=time() . "_" . basename($imageName);
-    $uploadPath=$uploadDir . $newImageName;
+    $imageDBName=time() . "_" . basename($imageName);
+    $uploadPath=$uploadDir . $imageDBName;
 
-
-if(move_uploaded_file($tmpName, $uploadPath)){
+    if(!move_uploaded_file($tmpName, $uploadPath)){
+        $imageDBName=null;
+    }
+    }
     if($name && $description && $price > 0){
-        $owner=$_SESSION["username"];
-        $status = "available";
-        $sql = "INSERT INTO items(item_name,description,price,status,owner_username) VALUES('$name','$description','$price','$status','$owner')";
+        $sql = "INSERT INTO items(item_name,description,image,price,status,owner_username) VALUES('$name','$description','$imageDBName','$price','$status','$owner')";
 
         if(mysqli_query($conn,$sql)){
             $message="Item added successfully!";
@@ -40,10 +44,6 @@ if(move_uploaded_file($tmpName, $uploadPath)){
     else{
         $message = "All fields are required";
     }
-}
-else{
-    $message = "Image upload failed";
-}
 
 }
 ?>
