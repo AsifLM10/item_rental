@@ -23,7 +23,9 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
             <?php endif; ?>
 
             <h3><?php echo $row["item_name"]; ?></h3>
-            <p></p>
+            <p><?php echo $row["descriptions"]; ?></p>
+            <p>Price: ৳<?php echo $row["price"]; ?></p>
+            <p>Status: <?php echo $row["status"]; ?></p>
     </div>
 
     </body>
