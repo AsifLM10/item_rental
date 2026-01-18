@@ -25,32 +25,46 @@ session_start();
             <?php else: ?>
                 <a href="login.php">Login</a>
                 <a href="signup.php">Sign Up</a>
-                
-            
-    
-        </div>
+                <?php endif; ?>
+            <hr>
 
-        <div class="section">
-            <h2>Why Choose Us?</h2>
-            <div class="cards">
-                <div class="card">Easy Item Management</div>
-                <div class="card">Secure Login System</div>
-            </div>
-        </div>
+    <img src="../../Renter/images/home.jpg" class="home-img" alt="Home Image">
 
-        <div class="section gray">
-            <h2> How It Works</h2>
-            <p>Register -> Login -> Manage or Rent Items</p>
-        </div>
+    <p>
+        EasyRent is a simple rental marketplace where users can browse, book,
+        and manage rental items easily.
+    </p>
 
-        <div class="section">
-            <h2 id="modeText">Light Mode</h2>
-            <button onclick="toggleMode()">Switch Mode</button>
-        </div>
+    <hr>
 
-        <div class="footer">
-            © 2025 Item Rental Management System
-        </div>
+    <h3>How It Works</h3>
+    <p>Register → Login → Manage or Rent Items</p>
+
+    <h3 id="modeText">Light Mode</h3>
+    <button onclick="toggleMode()">Switch Mode</button>
+
+    <p style="margin-top:15px;">
+        © 2025 Item Rental Management System
+    </p>
+
+</div>
+
+<script>
+function toggleMode() {
+    var body = document.body;
+    var text = document.getElementById("modeText");
+
+    if (body.style.backgroundColor === "black") {
+        body.style.backgroundColor = "";
+        body.style.color = "white";
+        text.innerHTML = "Light Mode";
+    } else {
+        body.style.backgroundColor = "black";
+        body.style.color = "white";
+        text.innerHTML = "Dark Mode";
+    }
+}
+</script>
     </body>
 
 </html>
