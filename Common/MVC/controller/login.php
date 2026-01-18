@@ -5,9 +5,14 @@ $username="";
 $userError="";
 $passError="";
 $error="";
-if(isset($_SESSION["username"]))
+if(isset($_SESSION["username"]) && isset($_SESSION["role"]))
 {
-  header("Location:dashboard.php");
+    if($_SESSION["role"] === "owner"){
+        header("Location: ../../../Owner/MVC/view/dashboard.php");
+    }
+    else{
+        header("Location: ../../../Renter/view/dashboard.php");
+    }
   exit();
 }
 
