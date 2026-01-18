@@ -14,6 +14,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $description = trim($_POST["description"]);
     $price = (int)$_POST["price"];
 
+    $imageName=$_FILES["image"]["name"];
+    $tmpName=$_FILES["image"]["tmp_name"];
+
+    $uploadDir = "../uploads/";
+    $newImageName=time() . "_" . basename($imageName);
+    $uploadPath=$uploadDir . $newImageName;
+
+
+if(move_uploaded_file($tmpName, $uploadPath)){
     if($name && $description && $quantity > 0){
         $owner=$_SESSION["username"];
         $status = "available";
@@ -29,6 +38,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     else{
         $message = "All fields are required";
     }
+}
+else{
+    $message = "Image upload failed";
+}
 
 }
 ?>
