@@ -6,21 +6,28 @@ session_start();
 <html>
     <head>
         <title>Item Rental Management System</title>
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../stylesheets/home.css">
         <script src="../js/dom.js"></script>
     </head>
     <body>
         <?php include "header.php"; ?>
 
-        <div class="top">
-            <h1>Item Rental Management System</h1>
-            <p>Manage and rent items easily with a simple and secure platform.</p>
+        <div class="box">
+            <h1>🛒 EasyRent</h1>
+            <p>Rent items easily and securely</p>
 
-            <?php
-            if(!isset($_SESSION["username"])){
-                echo "<a href='login.php' class='btn'>Get Started</a>";
-            }
-            ?>
+            <?php if(!isset($_SESSION["username"])): ?>
+                <p><b>Welcome <?php echo $_SESSION["username"]; ?></b></p>
+                <a href="../../../<?php echo ($_SESSION["role"] === 'owner') ? 'Owner/MVC/view/dashboard.php' : 'Renter/view/dashboard.php'; ?>">
+                    Go to Dashboard
+            </a>
+            <a href="../controller/logout.php">Logout</a>
+            <?php else: ?>
+                <a href="login.php">Login</a>
+                <a href="signup.php">Sign Up</a>
+                
+            
+    
         </div>
 
         <div class="section">

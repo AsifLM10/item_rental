@@ -44,9 +44,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         }
             $_SESSION["role"] = $row["role"];
             if ($row["role"] === "owner") {
-                header("Location: ../../Owner/MVC/view/dashboard.php");
+                header("Location: ../../../Owner/MVC/view/dashboard.php");
             } else {
-                header("Location: ../../Renter/view/dashboard.php");
+                header("Location: ../../../Renter/view/dashboard.php");
                 }
                 exit();
 
