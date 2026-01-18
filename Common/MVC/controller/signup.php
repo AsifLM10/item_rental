@@ -7,16 +7,20 @@ if($_SERVER["REQUEST_METHOD"]== "POST")
     $username =trim($_POST["username"]);
     $password=$_POST["password"];
     $email=trim($_POST["email"]);
-     if(empty($username)|| empty($password)|| empty($email)){
+    $role=$_POST["role"];
+     if(empty($username)|| empty($password)|| empty($email) || empty($role)){
     $message = "<p class='error'> All fields are required</p>";
      }
     elseif(!filter_var($email,FILTER_VALIDATE_EMAIL))
     {
          $message="<p class='error'>Invalid email format(use @)</p>";
     }
+    elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+     $message = "<p class='error'>Invalid role selected</p>";
+    }
     else{
          $hash=password_hash($password,PASSWORD_DEFAULT);
-         $sql="INSERT INTO users(username,password,role,email) VALUES ('$username','$hash','$email')";
+         $sql="INSERT INTO users(username,password,role,email) VALUES ('$username','$hash','$role','$email')";
          if(mysqli_query($conn,$sql))
         {
           $message="<p class='success'>Account created successfully!</p>";
