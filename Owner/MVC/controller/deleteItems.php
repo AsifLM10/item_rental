@@ -18,4 +18,10 @@ if($row && $row["image"]){
         unlink($imgPath);
     }
 }
+
+mysqli_query($conn, "DELETE FROM items WHERE id=$id AND owner_username='$owner'");
+
+header("Location: ../view/manageItems.php");
+exit();
+
 ?>
