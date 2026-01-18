@@ -10,10 +10,12 @@ include("../controller/addItem.php");
 <html>
     <head>
         <title>Add Item</title>
+        <link rel="stylesheet" href="../stylesheets/addItems.css">
     </head>
     <body>
+        <a href="dashboard.php" class="home-btn">Dashboard</a>
         <h2>Add New Item</h2>
-        <form method="post">
+        <form method="post" action="../controller/addItem.php">
             <input type="text" name="item_name" placeholder="Item name"><br><br>
 
             <textarea name="description" placeholder="Item description"></textarea><br><br>
