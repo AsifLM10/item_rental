@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner") {
+    header("Location: ../../../Common/MVC/view/login.php");
+    exit();
+}
 include("../controller/addItem.php");
 ?>
 <!DOCTYPE html>

@@ -27,6 +27,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner"){
         </div>
 
         <div class="container">
+            <a href="addItem.php" class=a>
             <div class="card">
                 <div class="icon">➕</div>
                 <h3>Add Item</h3>
