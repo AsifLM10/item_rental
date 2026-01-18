@@ -18,7 +18,12 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
 
     <h2 class="title">Manage Your Items</h2>
     <div class="container">
-        
+        <?php if($row["image"]): ?>
+            <img src="../../../uploads/<?php echo $row["image"]; ?>" alt="Item Image">
+            <?php endif; ?>
+
+            <h3><?php echo $row["item_name"]; ?></h3>
+            <p></p>
     </div>
 
     </body>
