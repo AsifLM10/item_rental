@@ -15,5 +15,7 @@ if(!$row){
 
 $newStatus = ($row["status"] === "available") ? "unavailable" : "available";
 
-mysqli
+mysqli_query($conn,"UPDATE items SET status = '$newStatus' WHERE id=$id AND owner_username=$owner");
+
+echo $newStatus;
 ?>
