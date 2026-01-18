@@ -20,7 +20,7 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
     <div class="container">
         <?php if(mysqli_num_rows($result) > 0): ?>
             <?php while($row = mysqli_fetch_assoc($result)): ?>
-                <div class="card">   
+                <div class="card" id="item-<?php echo $row['id']; ?>">   
                     <?php if(!empty($row["image"])): ?>
                         <img src="../../../uploads/<?php echo $row["image"]; ?>" alt="Item Image">
                         <?php endif; ?>
@@ -32,12 +32,9 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
                         <button onclick="toggleStatus(<?php echo $row['id']; ?>)">
                             Toggle Status
                         </button>
-                        <a href= "../controller/deleteItems.php?id=<?php echo $row["id"]; ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this item?')">
+                        <button onclick="deleteItem(<?php echo $row['id']; ?>)" class="delete-btn">
                             Delete
-                        </a>
-                        <a href="editItem.php?id=<?php echo $row['id']; ?>" class="edit-btn">
-                            Edit
-                        </a>
+                        </button>
                     </div>
             <?php endwhile; ?>
         <?php else: ?>

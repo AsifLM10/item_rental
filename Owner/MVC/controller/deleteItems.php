@@ -7,17 +7,13 @@ if (!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner") {
     exit();
 }
 
-if(!isset($_GET["id"])){
-    header("Location: ../view/manageItems.php");
-}
-
 $id=(int)$_GET["id"];
 $owner = $_SESSION["username"];
 $img= mysqli_query($conn,"SELECT image FROM items WHERE id=$id AND owner_username='$owner'");
 
 if($row=mysqli_fetch_assoc($img)){
     if(!empty($row["image"])){
-        $imgPath=$_SERVER["DOCUMENT_ROOT"] . "/item_rental/uploads" . $row["image"];
+        $imgPath = $_SERVER["DOCUMENT_ROOT"] . "/item_rental/uploads" . $row["image"];
         if(file_exists($imgPath)){
         unlink($imgPath);
         }
