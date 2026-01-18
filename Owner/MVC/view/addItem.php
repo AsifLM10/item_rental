@@ -14,8 +14,9 @@ include("../controller/addItem.php");
     </head>
     <body>
         <a href="dashboard.php" class="home-btn">Dashboard</a>
+        <div class="form-container">
         <h2>Add New Item</h2>
-        <form method="post" action="../controller/addItem.php">
+        <form method="post">
             <input type="text" name="item_name" placeholder="Item name"><br><br>
 
             <textarea name="description" placeholder="Item description"></textarea><br><br>
@@ -25,9 +26,7 @@ include("../controller/addItem.php");
             <button type="submit">Add Item</button>
         </form>
 
-        <p><?php echo $message; ?></p>
-
-        <a href="dashboard.php">Back</a>
-
+        <a href="dashboard.php" class="back-link">Go Back</a>
+        </div>
     </body>
 </html>
