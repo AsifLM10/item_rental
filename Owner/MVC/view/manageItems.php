@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../../../Common/MVC/database/config.php";
+include "../../../Common/MVC/controller/manageItems.php";
 
 $owner = $_SESSION["username"];
 $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'");
