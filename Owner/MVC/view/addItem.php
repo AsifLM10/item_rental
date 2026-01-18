@@ -10,7 +10,7 @@ include("../controller/addItem.php");
 <html>
     <head>
         <title>Add Item</title>
-        <link rel="stylesheet" href="../stylesheets/addItems.css">
+        <link rel="stylesheet" href="../stylesheets/addItem.css">
     </head>
     <body>
         <a href="dashboard.php" class="home-btn">Dashboard</a>
