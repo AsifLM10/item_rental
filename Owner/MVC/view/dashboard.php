@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+include("../controller/dashboard.php");
+
 if(!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner"){
     header("Location: ../../../Common/MVC/view/login.php");
     exit();
@@ -9,12 +12,12 @@ if(!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner"){
 <html>
     <head>
         <title>Owner Dashboard</title>
-        <link rel="stylesheet" href="../../../Common/MVC/css/style.css">
+        <link rel="stylesheet" href="../stylesheets/dashboard.css">
     </head>
     <body>
-        <?php include "../../../Common/MVC/view/header.php"; ?>
+        <a href="../../../Common/MVC/view/home.php" class="home-btn">Home</a>
 
-        <div class="section">
+        <div class="title">
             <h2>Owner Dashboard</h2>
             <p>Welcome <?php echo $_SESSION["username"]; ?></p>
             <a class="btn" href="addItem.php">Add Item</a>
