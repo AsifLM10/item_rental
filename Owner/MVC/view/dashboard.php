@@ -19,9 +19,13 @@ if(!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner"){
 
         <div class="title">
             <h2>Owner Dashboard</h2>
-            <p>Welcome <?php echo $_SESSION["username"]; ?></p>
-            <a class="btn" href="addItem.php">Add Item</a>
-            <a class="btn" href="manageItems.php">Manage Items</a>
+            <p>Manage your rental items</p>
         </div>
+
+        <div class="header">
+            Welcome <?php echo $displayName; ?>
+        </div>
+
+        
     </body>
 </html>
