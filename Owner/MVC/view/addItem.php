@@ -17,6 +17,10 @@ include("../controller/addItem.php");
 
             <button type="submit">Add Item</button>
         </form>
-        
+
+        <p><?php echo $message; ?></p>
+
+        <a href="dashboard.php">Back</a>
+
     </body>
 </html>
