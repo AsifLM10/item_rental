@@ -1,7 +1,6 @@
 <?php
-if(session_start() === PHP_SESSION_NONE) {
-    session_start();
-}
+//session_start();
+
 include("../../../Common/MVC/database/config.php");
 
 if (!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner") {
@@ -23,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $imageName=$_FILES["image"]["name"];
     $tmpName=$_FILES["image"]["tmp_name"];
 
-    $uploadDir = "../../../uploads/";
+    $uploadDir = $_SERVER["DOCUMENT_ROOT"] . "/item_rental/uploads/";
     $imageDBName=time() . "_" . basename($imageName);
     $uploadPath=$uploadDir . $imageDBName;
 
@@ -38,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             $message="Item added successfully!";
         } 
         else{
-            $message = "Error";
+            $message = "DB ERROR: " . mysqli_error($conn);
         }
     }
     else{
