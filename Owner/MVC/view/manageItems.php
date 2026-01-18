@@ -31,6 +31,9 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
                         <a href= "../controller/deleteItems.php?id=<?php echo $row["id"]; ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this item?')">
                             Delete
                         </a>
+                        <a href="editItem.php?id=<?php echo $row['id']; ?>" class="edit-btn">
+                            Edit
+                        </a>
                     </div>
             <?php endwhile; ?>
         <?php else: ?>
