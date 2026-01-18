@@ -35,7 +35,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner"){
             </div>
             </a>
 
-            <a href="manageItem.php" class="a">
+            <a href="manageItems.php" class="a">
             <div class="card">
                 <div class="icon">📦</div>
                 <h3>Manage Items</h3>
