@@ -26,6 +26,24 @@ if(!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner"){
             Welcome <?php echo $displayName; ?>
         </div>
 
-        
+        <div class="container">
+            <div class="card">
+                <div class="icon">➕</div>
+                <h3>Add Item</h3>
+                <p>Post a new item for rent</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📦</div>
+                <h3>Manage Items</h3>
+                <p>Edit or remove your items</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📑</div>
+                <h3>View Bookings</h3>
+                <p>See who booked your items</p>
+            </div>
+        </div>
     </body>
 </html>
