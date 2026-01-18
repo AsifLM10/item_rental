@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include("../database/rent.php");
+include("../database/config.php");
 $message = "";
 if($_SERVER["REQUEST_METHOD"]== "POST")
 {
@@ -19,16 +19,23 @@ if($_SERVER["REQUEST_METHOD"]== "POST")
      $message = "<p class='error'>Invalid role selected</p>";
     }
     else{
-         $hash=password_hash($password,PASSWORD_DEFAULT);
-         $sql="INSERT INTO users(username,password,role,email) VALUES ('$username','$hash','$role','$email')";
-         if(mysqli_query($conn,$sql))
-        {
-          $message="<p class='success'>Account created successfully!</p>";
-          $message.="<a href='../view/login.php'>Login Now</a>";
-        }
-        else{
-             $message="<p class='error'>Username already exists</p>";
-            }
+     $check = "SELECT id FROM users WHERE username='$username'";
+     $result = mysqli_query($conn, $check);
+
+     if(mysqli_num_rows($result) > 0){
+          $message = "<p class='error'>Username already exists</p>";
+     }
+          else{
+               $hash=password_hash($password,PASSWORD_DEFAULT);
+               $sql="INSERT INTO users(username,password,role,email) VALUES ('$username','$hash','$role','$email')";
+               if(mysqli_query($conn,$sql))
+                    {
+                         $message="<p class='success'>Account created successfully!</p>";
+                         $message.="<a href='../view/login.php'>Login Now</a>";
+                         } else{
+                              $message="<p class='error'>Username already exists</p>";
+                              }
+          }
         }
 }
 ?>
