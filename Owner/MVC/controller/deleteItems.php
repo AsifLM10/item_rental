@@ -6,4 +6,9 @@ if (!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner") {
     header("Location: ../../../Common/MVC/view/login.php");
     exit();
 }
+
+$id=(int)$_GET["id"];
+$owner = $_SESSION["username"];
+$img= mysqli_query($conn,"SELECT image FROM items WHERE id=$id AND owner_username='$owner'");
+$row=mysqli_fetch_assoc($img);
 ?>
