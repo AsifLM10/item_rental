@@ -29,8 +29,8 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
                         <p><strong>Price:</strong> ৳<?php echo $row["price"]; ?></p>
                         <p><strong>Status:</strong> <?php echo $row["status"]; ?></p>
 
-                        <button onclick="openEdit(<?php echo $row['id']?>, <?php echo $row['item_name']; ?>, <?php echo $row['description']; ?>, <?php echo $row['price']; ?> )">
-                            Edit
+                        <button onclick="toggleStatus(<?php echo $row['id']; ?>)">
+                            Toggle Status
                         </button>
                         <a href= "../controller/deleteItems.php?id=<?php echo $row["id"]; ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this item?')">
                             Delete
@@ -44,6 +44,8 @@ $result = mysqli_query($conn,"SELECT * FROM items WHERE owner_username='$owner'"
             <p class="empty">No items added yet.</p>
         <?php endif; ?>    
     </div>
+
+    <script src="../javascript/manageItems.js"></script>
 
     </body>
 </html>

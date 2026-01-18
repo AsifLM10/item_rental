@@ -1,6 +1,3 @@
-function openEdit(id, name, description, price){
-    document.getElementById("edit_id").value = id;
-    document.getElementById("edit_name").value = name;
-    document.getElementById("edit_description").value = description;
-    document.getElementById("edit_price").value = price;
+function toggleStatus(itemId){
+    fetch("../controller/toggleStatus.php?id=" + itemId).then(response => response.text()).then(newStatus => {document.getElementById("status-" + itemId).innerHTML = "<strong>Status: </strong> " + newStatus; });
 }
