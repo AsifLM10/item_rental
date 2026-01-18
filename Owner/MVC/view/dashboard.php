@@ -44,6 +44,20 @@ if(!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner"){
                 <h3>View Bookings</h3>
                 <p>See who booked your items</p>
             </div>
+
+            <div class="card">
+                <div class="icon">💰</div>
+                <h3>Earnings</h3>
+                <p>Track your rental income</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">👤</div>
+                <h3>Profile</h3>
+                <p>Edit your account details</p>
+            </div>
         </div>
+
+        <a href="../controller/logout.php" class="logout-btn">Logout</a>
     </body>
 </html>
