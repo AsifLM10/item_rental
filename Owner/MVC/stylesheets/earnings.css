@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #2ecc71, #3498db);
+    color: white;
+}
+
+.home-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.title {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.summary {
+    width: 300px;
+    margin: 30px auto;
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.amount {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2ecc71;
+}
+
+.table-box {
+    width: 60%;
+    margin: 30px auto;
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.empty {
+    text-align: center;
+    font-weight: bold;
+}
