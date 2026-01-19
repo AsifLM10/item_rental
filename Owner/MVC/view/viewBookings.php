@@ -9,10 +9,6 @@ if (!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner") {
 
 $owner = $_SESSION["username"];
 
-/*
-Step 1:
-Get booking requests ONLY for items that belong to this owner
-*/
 $sql = "
     SELECT * FROM rental_requests 
     WHERE item_id IN (
@@ -49,10 +45,6 @@ $result = mysqli_query($conn, $sql);
                 <?php while ($row = mysqli_fetch_assoc($result)): ?>
 
                     <?php
-                    /*
-                    Step 2:
-                    Fetch item info using item_id
-                    */
                     $itemId = $row["item_id"];
                     $itemQuery = mysqli_query(
                         $conn,
