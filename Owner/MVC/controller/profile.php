@@ -12,3 +12,5 @@ $message = "";
 $result = mysqli_query(
     $conn,
     "SELECT email FROM users WHERE username='$username'");
+
+$user = mysqli_fetch_assoc($result);
