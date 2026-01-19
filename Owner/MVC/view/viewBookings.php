@@ -1,7 +1,6 @@
-<?php 
+<?php
 session_start();
-include"../../../Common/MVC/database/config.php";
-include("../controller/viewBookings.php"); 
+include "../../../Common/MVC/database/config.php";
 
 if (!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner") {
     header("Location: ../../../Common/MVC/view/login.php");
@@ -10,50 +9,76 @@ if (!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner") {
 
 $owner = $_SESSION["username"];
 
-$sql = "SELECT * FROM rental_requests WHERE item_id IN(SELECT id FROM items WHERE owner_username = '$owner')";
+/*
+Step 1:
+Get booking requests ONLY for items that belong to this owner
+*/
+$sql = "
+    SELECT * FROM rental_requests 
+    WHERE item_id IN (
+        SELECT id FROM items WHERE owner_username = '$owner'
+    )
+";
+
+$result = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Booking Requests</title>
-        <link rel="stylesheet" href="../stylesheets/viewBookings.css">
-    </head>
+<head>
+    <title>Booking Requests</title>
+    <link rel="stylesheet" href="../stylesheets/dashboard.css">
+</head>
+<body>
 
-    <body>
-        <a href="dashboard.php" class="home-btn">Dashboard</a>
+<a href="dashboard.php" class="home-btn">Dashboard</a>
 
-        <h2 class="title">Booking Requests</h2>
+<h2 class="title">Booking Requests</h2>
 
-        <div class="container">
-            <?php if($result && mysqli_num_rows($result) > 0): ?>
-                <table>
+<div class="container">
+    <div class="card" style="padding:20px;">
+        <table width="100%" cellpadding="10">
+            <tr style="background:#2ecc71;color:white;">
+                <th>Item</th>
+                <th>Renter</th>
+                <th>Price</th>
+                <th>Status</th>
+            </tr>
+
+            <?php if (mysqli_num_rows($result) > 0): ?>
+                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+
+                    <?php
+                    /*
+                    Step 2:
+                    Fetch item info using item_id
+                    */
+                    $itemId = $row["item_id"];
+                    $itemQuery = mysqli_query(
+                        $conn,
+                        "SELECT item_name, price FROM items WHERE id = $itemId"
+                    );
+                    $item = mysqli_fetch_assoc($itemQuery);
+                    ?>
+
                     <tr>
-                        <th>Item</th>
-                        <th>Renter</th>
-                        <th>Price</th>
-                        <th>Status</th>
+                        <td><?php echo $item["item_name"]; ?></td>
+                        <td><?php echo $row["renter_username"]; ?></td>
+                        <td>৳<?php echo $item["price"]; ?></td>
+                        <td><?php echo $row["request_status"]; ?></td>
                     </tr>
 
-                    <?php while($row=mysqli_fetch_assoc($result)): ?>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="4" style="text-align:center;">
+                        No booking requests yet.
+                    </td>
+                </tr>
+            <?php endif; ?>
+        </table>
+    </div>
+</div>
 
-                        <?php
-                        $itemId = $row["item_id"];
-                        $itemReq = mysqli_query($conn, "SELECT item_name,price FROM items WHERE id=$itemId");
-                        $item = mysqli_fetch_assoc($itemReq);
-                        ?>
-
-                        <tr>
-                            <td><?php echo $row["item_name"]; ?></td>
-                            <td><?php echo $row["renter_username"]; ?></td>
-                            <td>৳<?php echo $row["price"]; ?></td>
-                            <td><?php echo $row["request_status"]; ?></td>
-                        </tr>
-                        <?php endwhile; ?>
-                </table>
-                <?php else: ?>
-                    <p class="empty">No booking requests yet.</p>
-                    <?php endif; ?>
-        </div>
-    </body>
+</body>
 </html>
