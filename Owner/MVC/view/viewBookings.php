@@ -1,5 +1,16 @@
 <?php 
+session_start();
+include"../../../Common/MVC/database/config.php";
 include("../controller/viewBookings.php"); 
+
+if (!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner") {
+    header("Location: ../../../Common/MVC/view/login.php");
+    exit();
+}
+
+$owner = $_SESSION["username"];
+
+$sql = "SELECT * FROM rental_requests WHERE item_id IN(SELECT id FROM items WHERE owner_username = '$owner')";
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +42,7 @@ include("../controller/viewBookings.php");
                         $itemReq = mysqli_query($conn, "SELECT item_name,price FROM items WHERE id=$itemId");
                         $item = mysqli_fetch_assoc($itemReq);
                         ?>
-                        
+
                         <tr>
                             <td><?php echo $row["item_name"]; ?></td>
                             <td><?php echo $row["renter_username"]; ?></td>
