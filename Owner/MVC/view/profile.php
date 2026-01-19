@@ -9,5 +9,6 @@ include "../controller/profile.php";
     <link rel="stylesheet" href="../stylesheets/profile.css">
 </head>
 <body>
-    
+
 </body>
+</html>
