@@ -19,5 +19,24 @@ include "../controller/earnings.php";
     <p class="amount">৳<?php echo $total; ?></p>
 </div>
 
+<div class="table-box">
+    <?php if (count($rows) > 0): ?>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+            </tr>
+            <?php foreach ($rows as $row): ?>
+                <tr>
+                    <td><?php echo $row["item_name"]; ?></td>
+                    <td>৳<?php echo $row["price"]; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php else: ?>
+        <p class="empty">No earnings yet.</p>
+    <?php endif; ?>
+</div>
+
 </body>
 </html>
