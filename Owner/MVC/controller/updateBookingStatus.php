@@ -11,4 +11,12 @@ if (!isset($_GET["id"]) || !isset($_GET["status"])) {
     header("Location: ../view/viewBookings.php");
     exit();
 }
+
+$id = (int)$_GET["id"];
+$status = $_GET["status"];
+
+if(!in_array($status, ["approved", "rejected"])){
+    exit();
+}
+
 ?>
