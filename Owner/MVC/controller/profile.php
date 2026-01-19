@@ -14,3 +14,19 @@ $result = mysqli_query(
     "SELECT email FROM users WHERE username='$username'");
 
 $user = mysqli_fetch_assoc($result);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $email = trim($_POST["email"]);
+    $password = trim($_POST["password"]);
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $message = "Invalid email format";
+    } else {
+        mysqli_query(
+            $conn,
+            "UPDATE users SET email='$email' WHERE username='$username'"
+        );
+        
+        $message = "Profile updated successfully";
+    }
+}
+?>
