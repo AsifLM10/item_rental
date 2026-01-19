@@ -69,6 +69,9 @@ $result = mysqli_query($conn, $sql);
                                 <a href="../controller/updateBookingStatus.php?id=<?php echo $row['id']; ?>&status=rejected">
                                     Reject
                                 </a>
+                                <?php else: ?>
+                                    -
+                                    <?php endif; ?>
                         </td>
                     </tr>
 
