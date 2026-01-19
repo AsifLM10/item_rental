@@ -19,4 +19,9 @@ if(!in_array($status, ["approved", "rejected"])){
     exit();
 }
 
+mysqli_query($conn,"UPDATE rental_requests SET request_status='$status' WHERE id=$id");
+
+header("Location: ../view/viewBookings.php");
+exit();
+
 ?>
