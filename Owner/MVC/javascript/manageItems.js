@@ -1,8 +1,10 @@
-function deleteItem(itemId) {
-    if (!confirm("Are you sure?")) return;
-
-    fetch("../controller/deleteItems.php?id=" + itemId)
-        .then(() => {
-            document.getElementById("item-" + itemId).remove();
+function toggleStatus(itemId) {
+    fetch("../controller/toggleStatus.php?id=" + itemId)
+        .then(res => res.text())
+        .then(newStatus => {
+            const statusEl = document.getElementById("status-" + itemId);
+            if (statusEl) {
+                statusEl.innerHTML = "<strong>Status:</strong> " + newStatus;
+            }
         });
 }
