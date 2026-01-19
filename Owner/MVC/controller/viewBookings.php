@@ -6,4 +6,10 @@ if (!isset($_SESSION["username"]) || $_SESSION["role"] !== "owner") {
     header("Location: ../../../Common/MVC/view/login.php");
     exit();
 }
+
+$owner = $_SESSION["username"];
+
+$sql = "SELECT * FROM rental_requests WHERE item_id IN(SELECT id FROM items WHERE owner_username = '$owner')";
+
+$requests = mysqli_query($conn,$sql);
 ?>
