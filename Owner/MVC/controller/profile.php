@@ -25,7 +25,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $conn,
             "UPDATE users SET email='$email' WHERE username='$username'"
         );
-        
+        if (!empty($password)) {
+            $hashed = password_hash($password, PASSWORD_DEFAULT);
+            mysqli_query(
+                $conn,
+                "UPDATE users SET password='$hashed' WHERE username='$username'"
+            );      
+        }
+
         $message = "Profile updated successfully";
     }
 }
