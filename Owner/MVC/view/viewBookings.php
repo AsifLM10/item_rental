@@ -35,6 +35,7 @@ include("../controller/viewBookings.php");
                 </table>
                 <?php else: ?>
                     <p class="empty">No booking requests yet.</p>
+                    <?php endif; ?>
         </div>
     </body>
 </html>
