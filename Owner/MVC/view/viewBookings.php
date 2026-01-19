@@ -39,6 +39,7 @@ $result = mysqli_query($conn, $sql);
                 <th>Renter</th>
                 <th>Price</th>
                 <th>Status</th>
+                <th>Action</th>
             </tr>
 
             <?php if (mysqli_num_rows($result) > 0): ?>
@@ -58,6 +59,17 @@ $result = mysqli_query($conn, $sql);
                         <td><?php echo $row["renter_username"]; ?></td>
                         <td>৳<?php echo $item["price"]; ?></td>
                         <td><?php echo $row["request_status"]; ?></td>
+                        
+                        <td>
+                            <?php if($row["request_status"] === "pending"): ?>
+                                <a href="../controller/updateBookingStatus.php?id=<?php echo $row['id']; ?>&status=approved">
+                                    Accept
+                                </a>
+
+                                <a href="../controller/updateBookingStatus.php?id=<?php echo $row['id']; ?>&status=rejected">
+                                    Reject
+                                </a>
+                        </td>
                     </tr>
 
                 <?php endwhile; ?>
