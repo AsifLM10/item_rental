@@ -62,11 +62,11 @@ $result = mysqli_query($conn, $sql);
                         
                         <td>
                             <?php if($row["request_status"] === "pending"): ?>
-                                <a href="../controller/updateBookingStatus.php?id=<?php echo $row['id']; ?>&status=approved">
+                                <a href="../controller/updateBookingStatus.php?id=<?php echo $row['id']; ?>&status=approved" style="background:#2ecc71;color:white;padding:6px 10px;border-radius:5px;text-decoration:none;">
                                     Accept
                                 </a>
 
-                                <a href="../controller/updateBookingStatus.php?id=<?php echo $row['id']; ?>&status=rejected">
+                                <a href="../controller/updateBookingStatus.php?id=<?php echo $row['id']; ?>&status=rejected" style="background:#e74c3c;color:white;padding:6px 10px;border-radius:5px;text-decoration:none;margin-left:5px;">
                                     Reject
                                 </a>
                                 <?php else: ?>
